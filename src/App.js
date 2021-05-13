@@ -1,33 +1,28 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+
+import Navbar from './navbar/Navbar.js';
+import Home from './home/Home.js';
+import Tasks from './tasks/Tasks.js';
 
 function App() {
   return (
-    <div className="App">
-      <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Top navbar</a>
+    <Router>
 
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Tasks</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <Navbar />
 
       <main class="container">
-        <div class="bg-light p-5 rounded">
-          <h1>Random Page</h1>
-          <p class="lead">This is a pointless landing page.</p>
-          <a class="btn btn-lg btn-primary" href="/docs/5.0/components/navbar/" role="button">View navbar docs »</a>
-        </div>
+        <Switch>
+          <Route path="/tasks">
+            <Tasks />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
       </main>
 
-    </div>
+    </Router>
   );
 }
 
