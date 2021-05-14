@@ -11,7 +11,7 @@ function App() {
 
       <Navbar />
 
-      <main class="container">
+      <main className="container">
         <Switch>
           <Route path="/tasks">
             <Tasks />
