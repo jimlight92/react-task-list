@@ -11,14 +11,17 @@ const TaskList = ({ tasks }) => {
                 )
             }
             {
-                tasks.map(task => (<Task key={task.id} task={task}/>))
+                tasks.map(task => (<Task key={task.id} task={task} />))
             }
         </>
     )
 }
 
 TaskList.propTypes = {
-    tasks: PropTypes.array.isRequired
+    tasks: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        taskText: PropTypes.string.isRequired,
+    })).isRequired
 }
 
 export default memo(TaskList)

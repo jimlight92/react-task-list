@@ -1,5 +1,6 @@
 
 import PropTypes from 'prop-types'
+import { memo } from 'react'
 
 function Task({ task }) {
     return (
@@ -8,7 +9,10 @@ function Task({ task }) {
 }
 
 Task.propTypes = {
-    task: PropTypes.object
+    task: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        taskText: PropTypes.string.isRequired,
+    })
 }
 
-export default Task
+export default memo(Task)
